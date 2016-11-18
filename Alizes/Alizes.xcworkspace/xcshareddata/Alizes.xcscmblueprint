@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "8C8A05EFF348C63AD181BAF180DF73E8B6A702AB",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "75601FD81BC6ADF58A45D5078CDBC5FAEBCCE86E" : 9223372036854775807,
+    "8C8A05EFF348C63AD181BAF180DF73E8B6A702AB" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9D794463-C8D8-496D-8CB2-3F16DC21316B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "75601FD81BC6ADF58A45D5078CDBC5FAEBCCE86E" : "Eltaso\/",
+    "8C8A05EFF348C63AD181BAF180DF73E8B6A702AB" : "Alizes\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Alizes",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Alizes\/Alizes.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/el-hoshino\/Eltaso.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "75601FD81BC6ADF58A45D5078CDBC5FAEBCCE86E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/el-hoshino\/Alizes.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8C8A05EFF348C63AD181BAF180DF73E8B6A702AB"
+    }
+  ]
+}
