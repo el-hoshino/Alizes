@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1654FF2C1DDEBD0300EE802B /* MorseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1654FF2B1DDEBD0300EE802B /* MorseCode.swift */; };
+		1654FF2E1DDEC0B500EE802B /* BinaryCodeConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1654FF2D1DDEC0B500EE802B /* BinaryCodeConvertible.swift */; };
 		165A31781DDEB8E600F15915 /* Alizes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 165A316E1DDEB8E600F15915 /* Alizes.framework */; };
 		165A317D1DDEB8E600F15915 /* AlizesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165A317C1DDEB8E600F15915 /* AlizesTests.swift */; };
 		165A317F1DDEB8E600F15915 /* Alizes.h in Headers */ = {isa = PBXBuildFile; fileRef = 165A31711DDEB8E600F15915 /* Alizes.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -38,7 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1654FF2B1DDEBD0300EE802B /* MorseCodeConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorseCodeConverter.swift; sourceTree = "<group>"; };
+		1654FF2B1DDEBD0300EE802B /* MorseCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorseCode.swift; sourceTree = "<group>"; };
 		1654FF2D1DDEC0B500EE802B /* BinaryCodeConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryCodeConvertible.swift; sourceTree = "<group>"; };
 		165A316E1DDEB8E600F15915 /* Alizes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alizes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		165A31711DDEB8E600F15915 /* Alizes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Alizes.h; sourceTree = "<group>"; };
@@ -95,6 +97,8 @@
 			children = (
 				165A31711DDEB8E600F15915 /* Alizes.h */,
 				165A31721DDEB8E600F15915 /* Info.plist */,
+				1654FF2D1DDEC0B500EE802B /* BinaryCodeConvertible.swift */,
+				1654FF2B1DDEBD0300EE802B /* MorseCode.swift */,
 			);
 			path = Alizes;
 			sourceTree = "<group>";
@@ -188,6 +192,7 @@
 					165A316D1DDEB8E600F15915 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = KC8N9BMQJY;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 					165A31761DDEB8E600F15915 = {
@@ -260,6 +265,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1654FF2C1DDEBD0300EE802B /* MorseCode.swift in Sources */,
+				1654FF2E1DDEC0B500EE802B /* BinaryCodeConvertible.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +391,7 @@
 		165A31831DDEB8E600F15915 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = KC8N9BMQJY;
@@ -396,6 +404,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.crazism.Alizes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -403,6 +412,7 @@
 		165A31841DDEB8E600F15915 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = KC8N9BMQJY;
@@ -422,6 +432,7 @@
 		165A31861DDEB8E600F15915 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = KC8N9BMQJY;
 				INFOPLIST_FILE = AlizesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -434,6 +445,7 @@
 		165A31871DDEB8E600F15915 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = KC8N9BMQJY;
 				INFOPLIST_FILE = AlizesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -462,6 +474,7 @@
 				165A31841DDEB8E600F15915 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		165A31851DDEB8E600F15915 /* Build configuration list for PBXNativeTarget "AlizesTests" */ = {
 			isa = XCConfigurationList;
@@ -470,6 +483,7 @@
 				165A31871DDEB8E600F15915 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
