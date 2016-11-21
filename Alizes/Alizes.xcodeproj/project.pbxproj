@@ -13,6 +13,7 @@
 		165A317D1DDEB8E600F15915 /* AlizesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165A317C1DDEB8E600F15915 /* AlizesTests.swift */; };
 		165A317F1DDEB8E600F15915 /* Alizes.h in Headers */ = {isa = PBXBuildFile; fileRef = 165A31711DDEB8E600F15915 /* Alizes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1693C7071DDEDAFE00CEDFF7 /* Eltaso.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1693C7061DDEDAFE00CEDFF7 /* Eltaso.framework */; };
+		16A3B4091DE29EF600C82CE4 /* MorseCodeDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A3B4081DE29EF600C82CE4 /* MorseCodeDictionary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		165A317E1DDEB8E600F15915 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1693C7061DDEDAFE00CEDFF7 /* Eltaso.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eltaso.framework; path = "../../Eltaso/Eltaso/build/Debug-iphoneos/Eltaso.framework"; sourceTree = "<group>"; };
 		1693C7081DDEE31A00CEDFF7 /* Eltaso.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Eltaso.xcodeproj; path = ../../Eltaso/Eltaso/Eltaso.xcodeproj; sourceTree = "<group>"; };
+		16A3B4081DE29EF600C82CE4 /* MorseCodeDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorseCodeDictionary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				165A31721DDEB8E600F15915 /* Info.plist */,
 				1654FF2D1DDEC0B500EE802B /* BinaryCodeConvertible.swift */,
 				1654FF2B1DDEBD0300EE802B /* MorseCode.swift */,
+				16A3B4081DE29EF600C82CE4 /* MorseCodeDictionary.swift */,
 			);
 			path = Alizes;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16A3B4091DE29EF600C82CE4 /* MorseCodeDictionary.swift in Sources */,
 				1654FF2C1DDEBD0300EE802B /* MorseCode.swift in Sources */,
 				1654FF2E1DDEC0B500EE802B /* BinaryCodeConvertible.swift in Sources */,
 			);
