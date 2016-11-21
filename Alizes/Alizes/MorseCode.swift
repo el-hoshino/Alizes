@@ -41,10 +41,12 @@ public struct MorseCode {
 			
 		}
 		
+		fileprivate let content: String
 		public let letters: [Letter]
 		
 	}
 	
+	fileprivate let content: String
 	let words: [Word]
 	
 }
@@ -175,10 +177,19 @@ extension MorseCode.Word {
 	public init(_ string: String) {
 		
 		let dictionary = MorseCodeDictionary()
-		let letters = string.characters.flatMap { (character) -> MorseCode.Word.Letter? in
-			return dictionary.getCode(for: character)
+		let tuples = string.characters.flatMap { (character) -> (character: Character, code: MorseCode.Word.Letter)? in
+			if let code = dictionary.getCode(for: character) {
+				return (character, code)
+			} else {
+				return nil
+			}
 		}
-		self.letters = letters
+		self.content = tuples.reduce("", { (content, tuple) -> String in
+			return content + String(tuple.character)
+		})
+		self.letters = tuples.map({ (tuple) -> MorseCode.Word.Letter in
+			return tuple.code
+		})
 		
 	}
 	
@@ -214,11 +225,23 @@ extension MorseCode.Word: CustomStringConvertible {
 
 extension MorseCode: StringInitializable {
 	
+	public var initializedString: String {
+		return self.content
+	}
+	
 	public init (_ string: String) {
 		
 		let words = string.components(separatedBy: .whitespaces).map { (word) -> MorseCode.Word in
 			return MorseCode.Word(word)
 		}
+		
+		self.content = words.reduce("", { (content, word) -> String in
+			if content.isEmpty {
+				return word.content
+			} else {
+				return content + " " + word.content
+			}
+		})
 		self.words = words
 		
 	}
@@ -266,7 +289,7 @@ extension MorseCode: BinaryCodeConvertible {
 	
 }
 
-extension MorseCode: Convertable {
+extension MorseCode: Convertible {
 	
 }
 

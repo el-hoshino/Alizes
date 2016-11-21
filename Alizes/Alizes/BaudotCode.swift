@@ -91,6 +91,7 @@ public struct BaudotCode {
 		
 	}
 	
+	fileprivate let content: String
 	let codes: [Code]
 	
 }
@@ -156,45 +157,74 @@ extension BaudotCode.Code: CustomStringConvertible {
 	}
 	
 }
+
+extension BaudotCode.Code {
+	
+	var swithcerCode: BaudotCode.Code {
+		switch self {
+		case .letter:
+			return .letter(.shiftToLetters)
+			
+		case .figure:
+			return .figure(.shiftToFigure)
+		}
+	}
+	
+	func isTheSameType(with anotherCode: BaudotCode.Code?) -> Bool {
+		
+		guard let anotherCode = anotherCode else {
+			return false
+		}
+		
+		switch (self, anotherCode) {
+		case (.letter, .letter),
+		     (.figure, .figure):
+			return true
+			
+		default:
+			return false
+		}
+		
+	}
+	
+}
+
 extension BaudotCode: StringInitializable {
+	
+	public var initializedString: String {
+		return self.content
+	}
 	
 	public init(_ string: String) {
 		
-		let codes = string.characters.reduce([]) { (codes, character) -> [BaudotCode.Code] in
+		let tuple = string.characters.reduce((content: "", codes: [])) { (tuples, character) -> (content: String, codes: [BaudotCode.Code]) in
 			
 			let dictionary = BaudotCodeDictionary()
-			var codes = codes
-			let lastCode = codes.last ?? {
-				let last = BaudotCode.Code.letter(.shiftToLetters)
-				codes.append(last)
-				return last
-			}()
 			
-			switch lastCode {
-			case .letter:
-				if let code = dictionary.getCodeFromLetters(for: character) {
-					codes.append(.letter(code))
-					
-				} else if let code = dictionary.getCodeFromFigures(for: character) {
-					codes.append(.letter(.shiftToFigures))
-					codes.append(.figure(code))
-				}
-				
-			case .figure:
-				if let code = dictionary.getCodeFromFigures(for: character) {
-					codes.append(.figure(code))
-					
-				} else if let code = dictionary.getCodeFromLetters(for: character) {
-					codes.append(.figure(.shiftToLetters))
-					codes.append(.letter(code))
-				}
+			var content = tuples.content
+			var codes = tuples.codes
+			
+			guard let nextCode = dictionary.getCode(for: character) else {
+				return tuples
 			}
 			
-			return codes
+			content += String(character)
+			
+			let lastCode = codes.last
+			if nextCode.isTheSameType(with: lastCode) {
+				codes.append(nextCode)
+				
+			} else {
+				codes.append(nextCode.swithcerCode)
+				codes.append(nextCode)
+			}
+			
+			return (content, codes)
 			
 		}
 		
-		self.codes = codes
+		self.content = tuple.content
+		self.codes = tuple.codes
 		
 	}
 	
@@ -237,7 +267,7 @@ extension BaudotCode: BinaryCodeConvertible {
 	
 }
 
-extension BaudotCode: Convertable {
+extension BaudotCode: Convertible {
 	
 }
 
