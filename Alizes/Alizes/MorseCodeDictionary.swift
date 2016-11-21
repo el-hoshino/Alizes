@@ -55,10 +55,31 @@ public struct MorseCodeDictionary {
 		"9": "----.",
 	]
 	
+	let punctuationDictionary: [String: String] = [
+		".": ".-.-.-",
+		",": "--..--",
+		"?": "..--..",
+		"'": ".----.",
+		"!": "-.-.--",
+		"/": "-..-.",
+		"(": "-.--.",
+		")": "-.--.-",
+		"&": ".-...",
+		":": "---...",
+		";": "-.-.-.",
+		"=": "-...-",
+		"+": ".-.-.",
+		"-": "-....-",
+		"_": "..--.-",
+		"\"": ".-..-.",
+		"$": "...-..-",
+		"@": ".--.-.",
+	]
+	
 	public func getCode(for character: Character) -> MorseCode.Word.Letter? {
 		
-		let text = String(character).uppercased()
-		if let codeString = self.alphabetDictionary[text] ?? self.numberDictionary[text] {
+		let text = String(character)
+		if let codeString = self.alphabetDictionary[text.uppercased()] ?? self.numberDictionary[text] ?? self.punctuationDictionary[text] {
 			return MorseCode.Word.Letter(codeString: codeString)
 			
 		} else {
