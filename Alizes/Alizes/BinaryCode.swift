@@ -1,5 +1,5 @@
 //
-//  BinaryCodeConvertible.swift
+//  BinaryCode.swift
 //  Alizes
 //
 //  Created by 史　翔新 on 2016/11/18.
@@ -29,30 +29,19 @@ public struct BinaryCode {
 		self.codes = codes
 	}
 	
-	public init(value: Int) {
-		
-		var int = value
-		var codes = [Code]()
-		
-		repeat {
-			let lastBit = int & 0b1
-			if lastBit == 0 {
-				codes.insert(.o, at: 0)
-			} else {
-				codes.insert(.i, at: 0)
-			}
-			int >>= 1
-		} while int > 0
-		
-		self.codes = codes
-		
-	}
-	
 	public init(count: Int, repeatedCode: Code) {
 		
 		self.codes = (0 ..< count).map { (_) -> Code in
 			return repeatedCode
 		}
+		
+	}
+	
+	public init(value: UInt, digitCount: Int) {
+		
+		self.codes = (0 ..< digitCount).reversed().map({ (i) -> Code in
+			return (value >> UInt(i)) & 0b1 == 0 ? .o : .i
+		})
 		
 	}
 	

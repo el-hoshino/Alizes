@@ -8,11 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		1654FF2C1DDEBD0300EE802B /* MorseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1654FF2B1DDEBD0300EE802B /* MorseCode.swift */; };
-		1654FF2E1DDEC0B500EE802B /* BinaryCodeConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1654FF2D1DDEC0B500EE802B /* BinaryCodeConvertible.swift */; };
+		1654FF2E1DDEC0B500EE802B /* BinaryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1654FF2D1DDEC0B500EE802B /* BinaryCode.swift */; };
 		165A31781DDEB8E600F15915 /* Alizes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 165A316E1DDEB8E600F15915 /* Alizes.framework */; };
 		165A317D1DDEB8E600F15915 /* AlizesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165A317C1DDEB8E600F15915 /* AlizesTests.swift */; };
 		165A317F1DDEB8E600F15915 /* Alizes.h in Headers */ = {isa = PBXBuildFile; fileRef = 165A31711DDEB8E600F15915 /* Alizes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1693C7071DDEDAFE00CEDFF7 /* Eltaso.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1693C7061DDEDAFE00CEDFF7 /* Eltaso.framework */; };
+		16A3B4091DE29EF600C82CE4 /* MorseCodeDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A3B4081DE29EF600C82CE4 /* MorseCodeDictionary.swift */; };
+		16A3B40D1DE2A9F900C82CE4 /* BaudotCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A3B40C1DE2A9F900C82CE4 /* BaudotCode.swift */; };
+		16A3B40F1DE2BBE800C82CE4 /* BaudotCodeDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A3B40E1DE2BBE800C82CE4 /* BaudotCodeDictionary.swift */; };
+		16A3B4111DE2DDD100C82CE4 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A3B4101DE2DDD100C82CE4 /* Converter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +45,7 @@
 
 /* Begin PBXFileReference section */
 		1654FF2B1DDEBD0300EE802B /* MorseCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorseCode.swift; sourceTree = "<group>"; };
-		1654FF2D1DDEC0B500EE802B /* BinaryCodeConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryCodeConvertible.swift; sourceTree = "<group>"; };
+		1654FF2D1DDEC0B500EE802B /* BinaryCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryCode.swift; sourceTree = "<group>"; };
 		165A316E1DDEB8E600F15915 /* Alizes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alizes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		165A31711DDEB8E600F15915 /* Alizes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Alizes.h; sourceTree = "<group>"; };
 		165A31721DDEB8E600F15915 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -50,6 +54,10 @@
 		165A317E1DDEB8E600F15915 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1693C7061DDEDAFE00CEDFF7 /* Eltaso.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eltaso.framework; path = "../../Eltaso/Eltaso/build/Debug-iphoneos/Eltaso.framework"; sourceTree = "<group>"; };
 		1693C7081DDEE31A00CEDFF7 /* Eltaso.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Eltaso.xcodeproj; path = ../../Eltaso/Eltaso/Eltaso.xcodeproj; sourceTree = "<group>"; };
+		16A3B4081DE29EF600C82CE4 /* MorseCodeDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorseCodeDictionary.swift; sourceTree = "<group>"; };
+		16A3B40C1DE2A9F900C82CE4 /* BaudotCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaudotCode.swift; sourceTree = "<group>"; };
+		16A3B40E1DE2BBE800C82CE4 /* BaudotCodeDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaudotCodeDictionary.swift; sourceTree = "<group>"; };
+		16A3B4101DE2DDD100C82CE4 /* Converter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +105,12 @@
 			children = (
 				165A31711DDEB8E600F15915 /* Alizes.h */,
 				165A31721DDEB8E600F15915 /* Info.plist */,
-				1654FF2D1DDEC0B500EE802B /* BinaryCodeConvertible.swift */,
+				1654FF2D1DDEC0B500EE802B /* BinaryCode.swift */,
+				16A3B4101DE2DDD100C82CE4 /* Converter.swift */,
 				1654FF2B1DDEBD0300EE802B /* MorseCode.swift */,
+				16A3B4081DE29EF600C82CE4 /* MorseCodeDictionary.swift */,
+				16A3B40C1DE2A9F900C82CE4 /* BaudotCode.swift */,
+				16A3B40E1DE2BBE800C82CE4 /* BaudotCodeDictionary.swift */,
 			);
 			path = Alizes;
 			sourceTree = "<group>";
@@ -265,8 +277,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16A3B4091DE29EF600C82CE4 /* MorseCodeDictionary.swift in Sources */,
+				16A3B40D1DE2A9F900C82CE4 /* BaudotCode.swift in Sources */,
+				16A3B40F1DE2BBE800C82CE4 /* BaudotCodeDictionary.swift in Sources */,
 				1654FF2C1DDEBD0300EE802B /* MorseCode.swift in Sources */,
-				1654FF2E1DDEC0B500EE802B /* BinaryCodeConvertible.swift in Sources */,
+				16A3B4111DE2DDD100C82CE4 /* Converter.swift in Sources */,
+				1654FF2E1DDEC0B500EE802B /* BinaryCode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
