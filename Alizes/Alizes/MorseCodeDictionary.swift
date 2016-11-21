@@ -55,7 +55,7 @@ public struct MorseCodeDictionary {
 		"9": "----.",
 	]
 	
-	public func getCode(forCharacter character: Character) -> String? {
+	public func getCode(for character: Character) -> String? {
 		
 		let text = String(character).uppercased()
 		return self.alphabetDictionary[text] ?? self.numberDictionary[text]
