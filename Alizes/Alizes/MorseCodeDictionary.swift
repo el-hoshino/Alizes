@@ -55,10 +55,32 @@ public struct MorseCodeDictionary {
 		"9": "----.",
 	]
 	
-	public func getCode(for character: Character) -> String? {
+	public func getCode(for character: Character) -> MorseCode.Word.Letter? {
 		
 		let text = String(character).uppercased()
-		return self.alphabetDictionary[text] ?? self.numberDictionary[text]
+		if let codeString = self.alphabetDictionary[text] ?? self.numberDictionary[text] {
+			return MorseCode.Word.Letter(codeString: codeString)
+			
+		} else {
+			return nil
+		}
+		
+	}
+	
+}
+
+extension MorseCode.Word.Letter {
+	
+	fileprivate init(codeString: String) {
+		
+		let codes = codeString.characters.map { (codeCharacter) -> MorseCode.Unit.Code in
+			guard let code = MorseCode.Unit.Code(codeCharacter) else {
+				fatalError("Invalid code string")
+			}
+			return code
+		}
+		
+		self.codes = codes
 		
 	}
 	

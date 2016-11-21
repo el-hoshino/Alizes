@@ -142,33 +142,6 @@ extension MorseCode.Unit: CustomStringConvertible {
 	
 }
 
-extension MorseCode.Word.Letter {
-	
-	private init(codeString: String) {
-		
-		let codes = codeString.characters.map { (codeCharacter) -> MorseCode.Unit.Code in
-			guard let code = MorseCode.Unit.Code(codeCharacter) else {
-				fatalError("Invalid code string")
-			}
-			return code
-		}
-		
-		self.codes = codes
-		
-	}
-	
-	public init?(_ character: Character) {
-		let dictionary = MorseCodeDictionary()
-		if let code = dictionary.getCode(for: character) {
-			self = MorseCode.Word.Letter(codeString: code)
-			
-		} else {
-			return nil
-		}
-	}
-	
-}
-
 extension MorseCode.Word.Letter: BinaryCodeConvertible {
 	
 	public var binaryCode: BinaryCode {
@@ -201,8 +174,9 @@ extension MorseCode.Word {
 	
 	public init(_ string: String) {
 		
+		let dictionary = MorseCodeDictionary()
 		let letters = string.characters.flatMap { (character) -> MorseCode.Word.Letter? in
-			return MorseCode.Word.Letter(character)
+			return dictionary.getCode(for: character)
 		}
 		self.letters = letters
 		
