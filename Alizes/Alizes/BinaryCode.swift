@@ -1,5 +1,5 @@
 //
-//  BinaryCodeConvertible.swift
+//  BinaryCode.swift
 //  Alizes
 //
 //  Created by 史　翔新 on 2016/11/18.
@@ -12,37 +12,6 @@ import Eltaso
 
 public protocol BinaryCodeConvertible {
 	var binaryCode: BinaryCode { get }
-}
-
-extension BinaryCodeConvertible {
-	
-	public typealias BinaryCodeGroup = (code: BinaryCode.Code, length: Int)
-	public var groupedBinaryCode: [BinaryCodeGroup] {
-		
-		let codes = self.binaryCode.codes
-		let groupedCodes = codes.reduce([]) { (groupedCodes, code) -> [BinaryCodeGroup] in
-			var groupedCodes = groupedCodes
-			if var lastCodeGroup = groupedCodes.last {
-				if lastCodeGroup.code == code {
-					lastCodeGroup.length.increase()
-					groupedCodes.removeLast()
-					groupedCodes.append(lastCodeGroup)
-					
-				} else {
-					let newCodeGroup = (code: code, length: 1)
-					groupedCodes.append(newCodeGroup)
-				}
-				return groupedCodes
-				
-			} else {
-				return [(code: code, length: 1)]
-			}
-		}
-		
-		return groupedCodes
-		
-	}
-	
 }
 
 public struct BinaryCode {
@@ -65,6 +34,14 @@ public struct BinaryCode {
 		self.codes = (0 ..< count).map { (_) -> Code in
 			return repeatedCode
 		}
+		
+	}
+	
+	public init(value: UInt, digitCount: Int) {
+		
+		self.codes = (0 ..< digitCount).reversed().map({ (i) -> Code in
+			return (value >> UInt(i)) & 0b1 == 0 ? .o : .i
+		})
 		
 	}
 	
