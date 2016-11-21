@@ -156,7 +156,7 @@ extension BaudotCode.Code: CustomStringConvertible {
 	}
 	
 }
-extension BaudotCode {
+extension BaudotCode: StringInitializable {
 	
 	public init(_ string: String) {
 		
@@ -234,6 +234,10 @@ extension BaudotCode: BinaryCodeConvertible {
 		return groupedCodes
 		
 	}
+	
+}
+
+extension BaudotCode: Convertable {
 	
 }
 

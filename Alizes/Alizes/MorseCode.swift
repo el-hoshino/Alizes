@@ -205,14 +205,14 @@ extension MorseCode.Word: CustomStringConvertible {
 			if description.isEmpty {
 				return letter.description
 			} else {
-				return description + "/" + letter.description
+				return description + " " + letter.description
 			}
 		})
 	}
 	
 }
 
-extension MorseCode {
+extension MorseCode: StringInitializable {
 	
 	public init (_ string: String) {
 		
@@ -266,6 +266,10 @@ extension MorseCode: BinaryCodeConvertible {
 	
 }
 
+extension MorseCode: Convertable {
+	
+}
+
 extension MorseCode: CustomStringConvertible {
 	
 	public var description: String {
@@ -273,7 +277,7 @@ extension MorseCode: CustomStringConvertible {
 			if description.isEmpty {
 				return word.description
 			} else {
-				return description + "///" + word.description
+				return description + "   " + word.description
 			}
 		})
 	}

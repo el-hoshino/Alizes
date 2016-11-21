@@ -16,6 +16,7 @@
 		16A3B4091DE29EF600C82CE4 /* MorseCodeDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A3B4081DE29EF600C82CE4 /* MorseCodeDictionary.swift */; };
 		16A3B40D1DE2A9F900C82CE4 /* BaudotCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A3B40C1DE2A9F900C82CE4 /* BaudotCode.swift */; };
 		16A3B40F1DE2BBE800C82CE4 /* BaudotCodeDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A3B40E1DE2BBE800C82CE4 /* BaudotCodeDictionary.swift */; };
+		16A3B4111DE2DDD100C82CE4 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A3B4101DE2DDD100C82CE4 /* Converter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		16A3B4081DE29EF600C82CE4 /* MorseCodeDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorseCodeDictionary.swift; sourceTree = "<group>"; };
 		16A3B40C1DE2A9F900C82CE4 /* BaudotCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaudotCode.swift; sourceTree = "<group>"; };
 		16A3B40E1DE2BBE800C82CE4 /* BaudotCodeDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaudotCodeDictionary.swift; sourceTree = "<group>"; };
+		16A3B4101DE2DDD100C82CE4 /* Converter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				165A31711DDEB8E600F15915 /* Alizes.h */,
 				165A31721DDEB8E600F15915 /* Info.plist */,
 				1654FF2D1DDEC0B500EE802B /* BinaryCode.swift */,
+				16A3B4101DE2DDD100C82CE4 /* Converter.swift */,
 				1654FF2B1DDEBD0300EE802B /* MorseCode.swift */,
 				16A3B4081DE29EF600C82CE4 /* MorseCodeDictionary.swift */,
 				16A3B40C1DE2A9F900C82CE4 /* BaudotCode.swift */,
@@ -278,6 +281,7 @@
 				16A3B40D1DE2A9F900C82CE4 /* BaudotCode.swift in Sources */,
 				16A3B40F1DE2BBE800C82CE4 /* BaudotCodeDictionary.swift in Sources */,
 				1654FF2C1DDEBD0300EE802B /* MorseCode.swift in Sources */,
+				16A3B4111DE2DDD100C82CE4 /* Converter.swift in Sources */,
 				1654FF2E1DDEC0B500EE802B /* BinaryCode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
