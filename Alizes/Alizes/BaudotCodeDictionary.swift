@@ -89,4 +89,18 @@ struct BaudotCodeDictionary {
 		
 	}
 	
+	public func getCode(for character: Character) -> BaudotCode.Code? {
+		
+		if let letter = self.getCodeFromLetters(for: character) {
+			return .letter(letter)
+			
+		} else if let figure = self.getCodeFromFigures(for: character) {
+			return .figure(figure)
+			
+		} else {
+			return nil
+		}
+		
+	}
+	
 }

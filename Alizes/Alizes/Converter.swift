@@ -8,11 +8,12 @@
 
 import Foundation
 
-protocol StringInitializable {
+public protocol StringInitializable {
+	var initializedString: String { get }
 	init(_ string: String)
 }
 
-protocol Convertable: StringInitializable, BinaryCodeConvertible {
+public protocol Convertible: StringInitializable, BinaryCodeConvertible, CustomStringConvertible {
 	
 }
 
@@ -27,7 +28,7 @@ public struct Converter {
 		
 	}
 	
-	public func convert(_ string: String, to code: Code) -> BinaryCodeConvertible {
+	public func convert(_ string: String, to code: Code) -> Convertible {
 		return code.initializer.init(string)
 	}
 	
@@ -59,7 +60,7 @@ public struct Converter {
 
 extension Converter.Code {
 	
-	var initializer: Convertable.Type {
+	var initializer: Convertible.Type {
 		switch self {
 		case .morseCode:
 			return MorseCode.self
