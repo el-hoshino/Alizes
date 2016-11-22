@@ -13,7 +13,7 @@ public protocol StringInitializable {
 	init(_ string: String)
 }
 
-public protocol Convertible: StringInitializable, BinaryCodeConvertible {
+public protocol Convertible: StringInitializable, BinaryCodeConvertible, CustomStringConvertible {
 	
 }
 
