@@ -32,8 +32,8 @@ public struct Converter {
 		return code.initializer.init(string)
 	}
 	
-	public typealias BinaryCodeGroup = (code: BinaryCode.Code, length: Int)
-	public func group(code: BinaryCode) -> [BinaryCodeGroup] {
+	public typealias BinaryCodeGroup = (code: BinaryCodeContainer.Code, length: Int)
+	public func group(code: BinaryCodeContainer) -> [BinaryCodeGroup] {
 		
 		return code.codes.reduce([]) { (groupedCodes, code) -> [BinaryCodeGroup] in
 			var groupedCodes = groupedCodes

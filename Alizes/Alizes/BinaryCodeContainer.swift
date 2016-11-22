@@ -1,5 +1,5 @@
 //
-//  BinaryCode.swift
+//  BinaryCodeContainer.swift
 //  Alizes
 //
 //  Created by 史　翔新 on 2016/11/18.
@@ -11,17 +11,17 @@ import Eltaso
 
 
 public protocol BinaryCodeConvertible {
-	var binaryCode: BinaryCode { get }
+	var binaryCodeContainer: BinaryCodeContainer { get }
 }
 
-public struct BinaryCode {
+public struct BinaryCodeContainer {
 	
 	public enum Code {
 		case o
 		case i
 	}
 	
-	public static let empty = BinaryCode(codes: [])
+	public static let empty = BinaryCodeContainer(codes: [])
 	
 	public let codes: [Code]
 	
@@ -51,7 +51,7 @@ public struct BinaryCode {
 	
 }
 
-extension BinaryCode.Code: CustomStringConvertible {
+extension BinaryCodeContainer.Code: CustomStringConvertible {
 	
 	public var description: String {
 		switch self {
@@ -65,7 +65,7 @@ extension BinaryCode.Code: CustomStringConvertible {
 	
 }
 
-extension BinaryCode: CustomStringConvertible {
+extension BinaryCodeContainer: CustomStringConvertible {
 	
 	public var description: String {
 		return self.codes.reduce("", { (description, code) -> String in
@@ -75,6 +75,6 @@ extension BinaryCode: CustomStringConvertible {
 	
 }
 
-public func + (lhs: BinaryCode, rhs: BinaryCode) -> BinaryCode {
-	return BinaryCode(codes: lhs.codes + rhs.codes)
+public func + (lhs: BinaryCodeContainer, rhs: BinaryCodeContainer) -> BinaryCodeContainer {
+	return BinaryCodeContainer(codes: lhs.codes + rhs.codes)
 }

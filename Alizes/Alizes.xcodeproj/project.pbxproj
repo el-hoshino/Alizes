@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1654FF2C1DDEBD0300EE802B /* MorseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1654FF2B1DDEBD0300EE802B /* MorseCode.swift */; };
-		1654FF2E1DDEC0B500EE802B /* BinaryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1654FF2D1DDEC0B500EE802B /* BinaryCode.swift */; };
+		1654FF2E1DDEC0B500EE802B /* BinaryCodeContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1654FF2D1DDEC0B500EE802B /* BinaryCodeContainer.swift */; };
 		165A31781DDEB8E600F15915 /* Alizes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 165A316E1DDEB8E600F15915 /* Alizes.framework */; };
 		165A317D1DDEB8E600F15915 /* AlizesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165A317C1DDEB8E600F15915 /* AlizesTests.swift */; };
 		165A317F1DDEB8E600F15915 /* Alizes.h in Headers */ = {isa = PBXBuildFile; fileRef = 165A31711DDEB8E600F15915 /* Alizes.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -45,7 +45,7 @@
 
 /* Begin PBXFileReference section */
 		1654FF2B1DDEBD0300EE802B /* MorseCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorseCode.swift; sourceTree = "<group>"; };
-		1654FF2D1DDEC0B500EE802B /* BinaryCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryCode.swift; sourceTree = "<group>"; };
+		1654FF2D1DDEC0B500EE802B /* BinaryCodeContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryCodeContainer.swift; sourceTree = "<group>"; };
 		165A316E1DDEB8E600F15915 /* Alizes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alizes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		165A31711DDEB8E600F15915 /* Alizes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Alizes.h; sourceTree = "<group>"; };
 		165A31721DDEB8E600F15915 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -105,7 +105,7 @@
 			children = (
 				165A31711DDEB8E600F15915 /* Alizes.h */,
 				165A31721DDEB8E600F15915 /* Info.plist */,
-				1654FF2D1DDEC0B500EE802B /* BinaryCode.swift */,
+				1654FF2D1DDEC0B500EE802B /* BinaryCodeContainer.swift */,
 				16A3B4101DE2DDD100C82CE4 /* Converter.swift */,
 				1654FF2B1DDEBD0300EE802B /* MorseCode.swift */,
 				16A3B4081DE29EF600C82CE4 /* MorseCodeDictionary.swift */,
@@ -282,7 +282,7 @@
 				16A3B40F1DE2BBE800C82CE4 /* BaudotCodeDictionary.swift in Sources */,
 				1654FF2C1DDEBD0300EE802B /* MorseCode.swift in Sources */,
 				16A3B4111DE2DDD100C82CE4 /* Converter.swift in Sources */,
-				1654FF2E1DDEC0B500EE802B /* BinaryCode.swift in Sources */,
+				1654FF2E1DDEC0B500EE802B /* BinaryCodeContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

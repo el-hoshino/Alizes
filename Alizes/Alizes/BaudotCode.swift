@@ -98,8 +98,8 @@ public struct BaudotCode {
 
 extension BaudotCode.Code.Letters: BinaryCodeConvertible {
 	
-	public var binaryCode: BinaryCode {
-		return BinaryCode(value: UInt(self.rawValue), digitCount: 5)
+	public var binaryCodeContainer: BinaryCodeContainer {
+		return BinaryCodeContainer(value: UInt(self.rawValue), digitCount: 5)
 	}
 	
 }
@@ -114,8 +114,8 @@ extension BaudotCode.Code.Letters: CustomStringConvertible {
 
 extension BaudotCode.Code.Figures: BinaryCodeConvertible {
 	
-	public var binaryCode: BinaryCode {
-		return BinaryCode(value: UInt(self.rawValue), digitCount: 5)
+	public var binaryCodeContainer: BinaryCodeContainer {
+		return BinaryCodeContainer(value: UInt(self.rawValue), digitCount: 5)
 	}
 	
 }
@@ -130,13 +130,13 @@ extension BaudotCode.Code.Figures: CustomStringConvertible {
 
 extension BaudotCode.Code: BinaryCodeConvertible {
 	
-	public var binaryCode: BinaryCode {
+	public var binaryCodeContainer: BinaryCodeContainer {
 		switch self {
 		case .letter(let letter):
-			return letter.binaryCode
+			return letter.binaryCodeContainer
 			
 		case .figure(let figure):
-			return figure.binaryCode
+			return figure.binaryCodeContainer
 		}
 	}
 	
@@ -232,37 +232,10 @@ extension BaudotCode: StringInitializable {
 
 extension BaudotCode: BinaryCodeConvertible {
 	
-	public var binaryCode: BinaryCode {
-		return self.codes.reduce(.empty, { (binaryCode, baudotCode) -> BinaryCode in
-			return binaryCode + baudotCode.binaryCode
+	public var binaryCodeContainer: BinaryCodeContainer {
+		return self.codes.reduce(.empty, { (container, baudotCode) -> BinaryCodeContainer in
+			return container + baudotCode.binaryCodeContainer
 		})
-	}
-	
-	public typealias BinaryCodeGroup = (code: BinaryCode.Code, length: Int)
-	public var groupedBinaryCode: [BinaryCodeGroup] {
-		
-		let codes = self.binaryCode.codes
-		let groupedCodes = codes.reduce([]) { (groupedCodes, code) -> [BinaryCodeGroup] in
-			var groupedCodes = groupedCodes
-			if var lastCodeGroup = groupedCodes.last {
-				if lastCodeGroup.code == code {
-					lastCodeGroup.length.increase()
-					groupedCodes.removeLast()
-					groupedCodes.append(lastCodeGroup)
-					
-				} else {
-					let newCodeGroup = (code: code, length: 1)
-					groupedCodes.append(newCodeGroup)
-				}
-				return groupedCodes
-				
-			} else {
-				return [(code: code, length: 1)]
-			}
-		}
-		
-		return groupedCodes
-		
 	}
 	
 }
