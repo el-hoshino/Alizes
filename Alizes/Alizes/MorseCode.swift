@@ -68,7 +68,7 @@ extension MorseCode.Unit.Code {
 	
 }
 
-extension MorseCode.Unit.Code: BinaryCodeConvertible {
+extension MorseCode.Unit.Code: BinaryCodeRepresentable {
 	
 	public var binaryCodeContainer: BinaryCodeContainer {
 		switch self {
@@ -96,7 +96,7 @@ extension MorseCode.Unit.Code: CustomStringConvertible {
 	
 }
 
-extension MorseCode.Unit.Gap: BinaryCodeConvertible {
+extension MorseCode.Unit.Gap: BinaryCodeRepresentable {
 	
 	public var binaryCodeContainer: BinaryCodeContainer {
 		switch self {
@@ -144,7 +144,7 @@ extension MorseCode.Unit: CustomStringConvertible {
 	
 }
 
-extension MorseCode.Word.Letter: BinaryCodeConvertible {
+extension MorseCode.Word.Letter: BinaryCodeRepresentable {
 	
 	public var binaryCodeContainer: BinaryCodeContainer {
 		return self.codes.reduce(.empty) { (container, morseCode) -> BinaryCodeContainer in
@@ -195,7 +195,7 @@ extension MorseCode.Word {
 	
 }
 
-extension MorseCode.Word: BinaryCodeConvertible {
+extension MorseCode.Word: BinaryCodeRepresentable {
 	
 	public var binaryCodeContainer: BinaryCodeContainer {
 		return self.letters.reduce(.empty) { (container, letter) -> BinaryCodeContainer in
@@ -248,7 +248,7 @@ extension MorseCode: StringInitializable {
 	
 }
 
-extension MorseCode: BinaryCodeConvertible {
+extension MorseCode: BinaryCodeRepresentable {
 	
 	public var binaryCodeContainer: BinaryCodeContainer {
 		return self.words.reduce(.empty, { (container, word) -> BinaryCodeContainer in

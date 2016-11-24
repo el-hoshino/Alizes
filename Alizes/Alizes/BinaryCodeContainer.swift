@@ -10,7 +10,7 @@ import Foundation
 import Eltaso
 
 
-public protocol BinaryCodeConvertible {
+public protocol BinaryCodeRepresentable {
 	var binaryCodeContainer: BinaryCodeContainer { get }
 }
 

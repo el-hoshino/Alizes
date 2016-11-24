@@ -96,7 +96,7 @@ public struct BaudotCode {
 	
 }
 
-extension BaudotCode.Code.Letters: BinaryCodeConvertible {
+extension BaudotCode.Code.Letters: BinaryCodeRepresentable {
 	
 	public var binaryCodeContainer: BinaryCodeContainer {
 		return BinaryCodeContainer(value: UInt(self.rawValue), digitCount: 5)
@@ -112,7 +112,7 @@ extension BaudotCode.Code.Letters: CustomStringConvertible {
 	
 }
 
-extension BaudotCode.Code.Figures: BinaryCodeConvertible {
+extension BaudotCode.Code.Figures: BinaryCodeRepresentable {
 	
 	public var binaryCodeContainer: BinaryCodeContainer {
 		return BinaryCodeContainer(value: UInt(self.rawValue), digitCount: 5)
@@ -128,7 +128,7 @@ extension BaudotCode.Code.Figures: CustomStringConvertible {
 	
 }
 
-extension BaudotCode.Code: BinaryCodeConvertible {
+extension BaudotCode.Code: BinaryCodeRepresentable {
 	
 	public var binaryCodeContainer: BinaryCodeContainer {
 		switch self {
@@ -230,7 +230,7 @@ extension BaudotCode: StringInitializable {
 	
 }
 
-extension BaudotCode: BinaryCodeConvertible {
+extension BaudotCode: BinaryCodeRepresentable {
 	
 	public var binaryCodeContainer: BinaryCodeContainer {
 		return self.codes.reduce(.empty, { (container, baudotCode) -> BinaryCodeContainer in
