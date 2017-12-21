@@ -12,11 +12,11 @@
 		165A31781DDEB8E600F15915 /* Alizes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 165A316E1DDEB8E600F15915 /* Alizes.framework */; };
 		165A317D1DDEB8E600F15915 /* AlizesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165A317C1DDEB8E600F15915 /* AlizesTests.swift */; };
 		165A317F1DDEB8E600F15915 /* Alizes.h in Headers */ = {isa = PBXBuildFile; fileRef = 165A31711DDEB8E600F15915 /* Alizes.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1693C7071DDEDAFE00CEDFF7 /* Eltaso.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1693C7061DDEDAFE00CEDFF7 /* Eltaso.framework */; };
 		16A3B4091DE29EF600C82CE4 /* MorseCodeDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A3B4081DE29EF600C82CE4 /* MorseCodeDictionary.swift */; };
 		16A3B40D1DE2A9F900C82CE4 /* BaudotCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A3B40C1DE2A9F900C82CE4 /* BaudotCode.swift */; };
 		16A3B40F1DE2BBE800C82CE4 /* BaudotCodeDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A3B40E1DE2BBE800C82CE4 /* BaudotCodeDictionary.swift */; };
 		16A3B4111DE2DDD100C82CE4 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A3B4101DE2DDD100C82CE4 /* Converter.swift */; };
+		BF1C9B751FEB9BCA00A7B612 /* Eltaso.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C9B741FEB9BCA00A7B612 /* Eltaso.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,20 +26,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 165A316D1DDEB8E600F15915;
 			remoteInfo = Alizes;
-		};
-		1693C70D1DDEE31A00CEDFF7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1693C7081DDEE31A00CEDFF7 /* Eltaso.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 79E14E821D2B90DA00AF6EE4;
-			remoteInfo = Eltaso;
-		};
-		1693C70F1DDEE31A00CEDFF7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1693C7081DDEE31A00CEDFF7 /* Eltaso.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 79E14E8C1D2B90DA00AF6EE4;
-			remoteInfo = EltasoTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -53,11 +39,11 @@
 		165A317C1DDEB8E600F15915 /* AlizesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlizesTests.swift; sourceTree = "<group>"; };
 		165A317E1DDEB8E600F15915 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1693C7061DDEDAFE00CEDFF7 /* Eltaso.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eltaso.framework; path = "../../Eltaso/Eltaso/build/Debug-iphoneos/Eltaso.framework"; sourceTree = "<group>"; };
-		1693C7081DDEE31A00CEDFF7 /* Eltaso.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Eltaso.xcodeproj; path = ../../Eltaso/Eltaso/Eltaso.xcodeproj; sourceTree = "<group>"; };
 		16A3B4081DE29EF600C82CE4 /* MorseCodeDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorseCodeDictionary.swift; sourceTree = "<group>"; };
 		16A3B40C1DE2A9F900C82CE4 /* BaudotCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaudotCode.swift; sourceTree = "<group>"; };
 		16A3B40E1DE2BBE800C82CE4 /* BaudotCodeDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaudotCodeDictionary.swift; sourceTree = "<group>"; };
 		16A3B4101DE2DDD100C82CE4 /* Converter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
+		BF1C9B741FEB9BCA00A7B612 /* Eltaso.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eltaso.framework; path = ../Carthage/Build/iOS/Eltaso.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1693C7071DDEDAFE00CEDFF7 /* Eltaso.framework in Frameworks */,
+				BF1C9B751FEB9BCA00A7B612 /* Eltaso.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,7 +69,6 @@
 		165A31641DDEB8E600F15915 = {
 			isa = PBXGroup;
 			children = (
-				1693C7081DDEE31A00CEDFF7 /* Eltaso.xcodeproj */,
 				165A31701DDEB8E600F15915 /* Alizes */,
 				165A317B1DDEB8E600F15915 /* AlizesTests */,
 				165A316F1DDEB8E600F15915 /* Products */,
@@ -127,18 +112,10 @@
 		1693C7051DDEDAFE00CEDFF7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BF1C9B741FEB9BCA00A7B612 /* Eltaso.framework */,
 				1693C7061DDEDAFE00CEDFF7 /* Eltaso.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		1693C7091DDEE31A00CEDFF7 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				1693C70E1DDEE31A00CEDFF7 /* Eltaso.framework */,
-				1693C7101DDEE31A00CEDFF7 /* EltasoTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,12 +201,6 @@
 			mainGroup = 165A31641DDEB8E600F15915;
 			productRefGroup = 165A316F1DDEB8E600F15915 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 1693C7091DDEE31A00CEDFF7 /* Products */;
-					ProjectRef = 1693C7081DDEE31A00CEDFF7 /* Eltaso.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				165A316D1DDEB8E600F15915 /* Alizes */,
@@ -237,23 +208,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		1693C70E1DDEE31A00CEDFF7 /* Eltaso.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Eltaso.framework;
-			remoteRef = 1693C70D1DDEE31A00CEDFF7 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		1693C7101DDEE31A00CEDFF7 /* EltasoTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = EltasoTests.xctest;
-			remoteRef = 1693C70F1DDEE31A00CEDFF7 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		165A316C1DDEB8E600F15915 /* Resources */ = {
@@ -414,6 +368,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS";
 				INFOPLIST_FILE = Alizes/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -436,6 +391,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Carthage/Build/iOS";
 				INFOPLIST_FILE = Alizes/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
