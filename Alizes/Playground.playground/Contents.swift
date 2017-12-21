@@ -3,8 +3,10 @@
 import UIKit
 import Alizes
 
-var str = "Hello playground"
+let str = "Hello playground"
 
-let sentence = MorseCode.Sentence(str)
-print(sentence)
-print(sentence.binaryCode)
+let morse = MorseCode(str)
+let baudot = BaudotCode(str)
+
+print(morse)
+print(baudot)
