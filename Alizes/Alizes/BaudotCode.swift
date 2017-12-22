@@ -243,16 +243,10 @@ extension BaudotCode: BinaryCodeRepresentable {
 extension BaudotCode: CustomStringConvertible {
 	
 	public var description: String {
-        let alignmentLine = self.codes.map({ _ in "-" }).joined()
-        let transformedCodes = (0 ..< 5).map { (i) -> String in
-            let codesOfCurrentLine = self.codes.map({ (code) -> BinaryCodeContainer.Code in
-                return code.binaryCodeContainer.codes[i]
-            })
-            return codesOfCurrentLine.reduce("", { (result, code) -> String in
-                return result + code.baudotDescription
-            })
-        }.joined(separator: "\n")
-		return [alignmentLine, transformedCodes, alignmentLine].joined(separator: "\n")
+        let alignmentLine = self.codes.map({ _ in "-" }).joined(separator: "|")
+        let transformedCodes1 = self.descriptionCodes(within: 0 ..< 2).joined(separator: "\n")
+        let transformedCodes2 = self.descriptionCodes(within: 2 ..< 5).joined(separator: "\n")
+		return [transformedCodes1, alignmentLine, transformedCodes2].joined(separator: "\n")
 	}
 	
 }
@@ -262,11 +256,23 @@ private extension BinaryCodeContainer.Code {
     var baudotDescription: String {
         switch self {
         case .i:
-            return "."
+            return "•"
             
         case .o:
             return " "
         }
+    }
+    
+}
+
+private extension BaudotCode {
+    
+    func descriptionCodes(within lineRange: CountableRange<Int>) -> [String] {
+        return lineRange.map({ (i) -> String in
+            return self.codes.map({ (code) -> String in
+                return code.binaryCodeContainer.codes[i].baudotDescription
+            }).joined(separator: "|")
+        })
     }
     
 }
