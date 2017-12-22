@@ -118,27 +118,13 @@ extension MorseCode.Unit.Gap: CustomStringConvertible {
 	public var description: String {
 		switch self {
 		case .interElement:
-			return " "
+			return ""
 			
 		case .short:
-			return "   "
+			return " "
 			
 		case .medium:
-			return "       "
-		}
-	}
-	
-}
-
-extension MorseCode.Unit: CustomStringConvertible {
-	
-	public var description: String {
-		switch self {
-		case .code(let code):
-			return code.description
-			
-		case .gap(let gap):
-			return gap.description
+			return "   "
 		}
 	}
 	
@@ -165,7 +151,7 @@ extension MorseCode.Word.Letter: CustomStringConvertible {
 			if description.isEmpty {
 				return code.description
 			} else {
-				return description + code.description
+				return description + MorseCode.Unit.Gap.interElement.description + code.description
 			}
 		})
 	}
@@ -216,7 +202,7 @@ extension MorseCode.Word: CustomStringConvertible {
 			if description.isEmpty {
 				return letter.description
 			} else {
-				return description + " " + letter.description
+				return description + MorseCode.Unit.Gap.short.description + letter.description
 			}
 		})
 	}
@@ -239,7 +225,7 @@ extension MorseCode: StringInitializable {
 			if content.isEmpty {
 				return word.content
 			} else {
-				return content + " " + word.content
+				return content + MorseCode.Unit.Gap.medium.description + word.content
 			}
 		})
 		self.words = words
@@ -259,10 +245,6 @@ extension MorseCode: BinaryCodeRepresentable {
 			}
 		})
 	}
-	
-}
-
-extension MorseCode: Convertible {
 	
 }
 

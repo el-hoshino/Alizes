@@ -107,7 +107,7 @@ extension BaudotCode.Code.Letters: BinaryCodeRepresentable {
 extension BaudotCode.Code.Letters: CustomStringConvertible {
 	
 	public var description: String {
-		return self.rawValue.baudotCodeString
+        return self.binaryCodeContainer.codes.reduce("", { $0 + $1.baudotDescription })
 	}
 	
 }
@@ -123,7 +123,7 @@ extension BaudotCode.Code.Figures: BinaryCodeRepresentable {
 extension BaudotCode.Code.Figures: CustomStringConvertible {
 	
 	public var description: String {
-		return self.rawValue.baudotCodeString
+        return self.binaryCodeContainer.codes.reduce("", { $0 + $1.baudotDescription })
 	}
 	
 }
@@ -240,32 +240,33 @@ extension BaudotCode: BinaryCodeRepresentable {
 	
 }
 
-extension BaudotCode: Convertible {
-	
-}
-
 extension BaudotCode: CustomStringConvertible {
 	
 	public var description: String {
-		return self.codes.reduce("", { (description, code) -> String in
-			if description.isEmpty {
-				return code.description
-				
-			} else {
-				return description + "\n" + code.description
-			}
-		})
+        let alignmentLine = self.codes.map({ _ in "-" }).joined()
+        let transformedCodes = (0 ..< 5).map { (i) -> String in
+            let codesOfCurrentLine = self.codes.map({ (code) -> BinaryCodeContainer.Code in
+                return code.binaryCodeContainer.codes[i]
+            })
+            return codesOfCurrentLine.reduce("", { (result, code) -> String in
+                return result + code.baudotDescription
+            })
+        }.joined(separator: "\n")
+		return [alignmentLine, transformedCodes, alignmentLine].joined(separator: "\n")
 	}
 	
 }
 
-private extension UInt8 {
-	
-	var baudotCodeString: String {
-		return (UInt8(0) ..< UInt8(5)).reversed().reduce("") { (code, i) -> String in
-			let unit = ((self >> i) & 0b1) == 0 ? " " : "."
-			return code + unit
-		}
-	}
-	
+private extension BinaryCodeContainer.Code {
+    
+    var baudotDescription: String {
+        switch self {
+        case .i:
+            return "."
+            
+        case .o:
+            return " "
+        }
+    }
+    
 }
