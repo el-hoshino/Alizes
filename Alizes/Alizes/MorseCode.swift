@@ -68,15 +68,15 @@ extension MorseCode.Unit.Code {
 	
 }
 
-extension MorseCode.Unit.Code: BinaryCodeConvertible {
+extension MorseCode.Unit.Code: BinaryCodeRepresentable {
 	
-	public var binaryCode: BinaryCode {
+	public var binaryCodeContainer: BinaryCodeContainer {
 		switch self {
 		case .dot:
-			return BinaryCode(count: 1, repeatedCode: .i)
+			return BinaryCodeContainer(count: 1, repeatedCode: .i)
 			
 		case .dash:
-			return BinaryCode(count: 3, repeatedCode: .i)
+			return BinaryCodeContainer(count: 3, repeatedCode: .i)
 		}
 	}
 	
@@ -96,18 +96,18 @@ extension MorseCode.Unit.Code: CustomStringConvertible {
 	
 }
 
-extension MorseCode.Unit.Gap: BinaryCodeConvertible {
+extension MorseCode.Unit.Gap: BinaryCodeRepresentable {
 	
-	public var binaryCode: BinaryCode {
+	public var binaryCodeContainer: BinaryCodeContainer {
 		switch self {
 		case .interElement:
-			return BinaryCode(count: 1, repeatedCode: .o)
+			return BinaryCodeContainer(count: 1, repeatedCode: .o)
 			
 		case .short:
-			return BinaryCode(count: 3, repeatedCode: .o)
+			return BinaryCodeContainer(count: 3, repeatedCode: .o)
 			
 		case .medium:
-			return BinaryCode(count: 7, repeatedCode: .o)
+			return BinaryCodeContainer(count: 7, repeatedCode: .o)
 		}
 	}
 	
@@ -118,40 +118,26 @@ extension MorseCode.Unit.Gap: CustomStringConvertible {
 	public var description: String {
 		switch self {
 		case .interElement:
-			return " "
+			return ""
 			
 		case .short:
-			return "   "
+			return "/"
 			
 		case .medium:
-			return "       "
+			return "///"
 		}
 	}
 	
 }
 
-extension MorseCode.Unit: CustomStringConvertible {
+extension MorseCode.Word.Letter: BinaryCodeRepresentable {
 	
-	public var description: String {
-		switch self {
-		case .code(let code):
-			return code.description
-			
-		case .gap(let gap):
-			return gap.description
-		}
-	}
-	
-}
-
-extension MorseCode.Word.Letter: BinaryCodeConvertible {
-	
-	public var binaryCode: BinaryCode {
-		return self.codes.reduce(.empty) { (binaryCode, unitCode) -> BinaryCode in
-			if binaryCode.isEmpty {
-				return unitCode.binaryCode
+	public var binaryCodeContainer: BinaryCodeContainer {
+		return self.codes.reduce(.empty) { (container, morseCode) -> BinaryCodeContainer in
+			if container.isEmpty {
+				return morseCode.binaryCodeContainer
 			} else {
-				return binaryCode + MorseCode.Unit.Gap.interElement.binaryCode + unitCode.binaryCode
+				return container + MorseCode.Unit.Gap.interElement.binaryCodeContainer + morseCode.binaryCodeContainer
 			}
 		}
 	}
@@ -165,7 +151,7 @@ extension MorseCode.Word.Letter: CustomStringConvertible {
 			if description.isEmpty {
 				return code.description
 			} else {
-				return description + code.description
+				return description + MorseCode.Unit.Gap.interElement.description + code.description
 			}
 		})
 	}
@@ -177,7 +163,7 @@ extension MorseCode.Word {
 	public init(_ string: String) {
 		
 		let dictionary = MorseCodeDictionary()
-		let tuples = string.characters.flatMap { (character) -> (character: Character, code: MorseCode.Word.Letter)? in
+		let tuples = string.flatMap { (character) -> (character: Character, code: MorseCode.Word.Letter)? in
 			if let code = dictionary.getCode(for: character) {
 				return (character, code)
 			} else {
@@ -195,14 +181,14 @@ extension MorseCode.Word {
 	
 }
 
-extension MorseCode.Word: BinaryCodeConvertible {
+extension MorseCode.Word: BinaryCodeRepresentable {
 	
-	public var binaryCode: BinaryCode {
-		return self.letters.reduce(.empty) { (binaryCode, letter) -> BinaryCode in
-			if binaryCode.isEmpty {
-				return letter.binaryCode
+	public var binaryCodeContainer: BinaryCodeContainer {
+		return self.letters.reduce(.empty) { (container, letter) -> BinaryCodeContainer in
+			if container.isEmpty {
+				return letter.binaryCodeContainer
 			} else {
-				return binaryCode + MorseCode.Unit.Gap.short.binaryCode + letter.binaryCode
+				return container + MorseCode.Unit.Gap.short.binaryCodeContainer + letter.binaryCodeContainer
 			}
 		}
 	}
@@ -216,7 +202,7 @@ extension MorseCode.Word: CustomStringConvertible {
 			if description.isEmpty {
 				return letter.description
 			} else {
-				return description + " " + letter.description
+				return description + MorseCode.Unit.Gap.short.description + letter.description
 			}
 		})
 	}
@@ -248,48 +234,17 @@ extension MorseCode: StringInitializable {
 	
 }
 
-extension MorseCode: BinaryCodeConvertible {
+extension MorseCode: BinaryCodeRepresentable {
 	
-	public var binaryCode: BinaryCode {
-		return self.words.reduce(.empty, { (binaryCode, word) -> BinaryCode in
-			if binaryCode.isEmpty {
-				return word.binaryCode
+	public var binaryCodeContainer: BinaryCodeContainer {
+		return self.words.reduce(.empty, { (container, word) -> BinaryCodeContainer in
+			if container.isEmpty {
+				return word.binaryCodeContainer
 			} else {
-				return binaryCode + Unit.Gap.medium.binaryCode + word.binaryCode
+				return container + Unit.Gap.medium.binaryCodeContainer + word.binaryCodeContainer
 			}
 		})
 	}
-	
-	public typealias BinaryCodeGroup = (code: BinaryCode.Code, length: Int)
-	public var groupedBinaryCode: [BinaryCodeGroup] {
-		
-		let codes = self.binaryCode.codes
-		let groupedCodes = codes.reduce([]) { (groupedCodes, code) -> [BinaryCodeGroup] in
-			var groupedCodes = groupedCodes
-			if var lastCodeGroup = groupedCodes.last {
-				if lastCodeGroup.code == code {
-					lastCodeGroup.length.increase()
-					groupedCodes.removeLast()
-					groupedCodes.append(lastCodeGroup)
-					
-				} else {
-					let newCodeGroup = (code: code, length: 1)
-					groupedCodes.append(newCodeGroup)
-				}
-				return groupedCodes
-				
-			} else {
-				return [(code: code, length: 1)]
-			}
-		}
-		
-		return groupedCodes
-		
-	}
-	
-}
-
-extension MorseCode: Convertible {
 	
 }
 
@@ -300,7 +255,7 @@ extension MorseCode: CustomStringConvertible {
 			if description.isEmpty {
 				return word.description
 			} else {
-				return description + "   " + word.description
+				return description + MorseCode.Unit.Gap.medium.description + word.description
 			}
 		})
 	}
