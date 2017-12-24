@@ -276,3 +276,7 @@ private extension BaudotCode {
 	}
 	
 }
+
+extension BaudotCode: Convertible {
+	
+}
