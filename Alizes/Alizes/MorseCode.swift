@@ -261,3 +261,7 @@ extension MorseCode: CustomStringConvertible {
 	}
 	
 }
+
+extension MorseCode: Convertible {
+	
+}
