@@ -107,7 +107,7 @@ extension BaudotCode.Code.Letters: BinaryCodeRepresentable {
 extension BaudotCode.Code.Letters: CustomStringConvertible {
 	
 	public var description: String {
-        return self.binaryCodeContainer.codes.reduce("", { $0 + $1.baudotDescription })
+		return self.binaryCodeContainer.codes.reduce("", { $0 + $1.baudotDescription })
 	}
 	
 }
@@ -123,7 +123,7 @@ extension BaudotCode.Code.Figures: BinaryCodeRepresentable {
 extension BaudotCode.Code.Figures: CustomStringConvertible {
 	
 	public var description: String {
-        return self.binaryCodeContainer.codes.reduce("", { $0 + $1.baudotDescription })
+		return self.binaryCodeContainer.codes.reduce("", { $0 + $1.baudotDescription })
 	}
 	
 }
@@ -178,7 +178,7 @@ extension BaudotCode.Code {
 		
 		switch (self, anotherCode) {
 		case (.letter, .letter),
-		     (.figure, .figure):
+			 (.figure, .figure):
 			return true
 			
 		default:
@@ -243,36 +243,36 @@ extension BaudotCode: BinaryCodeRepresentable {
 extension BaudotCode: CustomStringConvertible {
 	
 	public var description: String {
-        let alignmentLine = self.codes.map({ _ in "-" }).joined(separator: "|")
-        let transformedCodes1 = self.descriptionCodes(within: 0 ..< 2).joined(separator: "\n")
-        let transformedCodes2 = self.descriptionCodes(within: 2 ..< 5).joined(separator: "\n")
+		let alignmentLine = self.codes.map({ _ in "·" }).joined(separator: "|")
+		let transformedCodes1 = self.descriptionCodes(within: 0 ..< 2).joined(separator: "\n")
+		let transformedCodes2 = self.descriptionCodes(within: 2 ..< 5).joined(separator: "\n")
 		return [transformedCodes1, alignmentLine, transformedCodes2].joined(separator: "\n")
 	}
 	
 }
 
 private extension BinaryCodeContainer.Code {
-    
-    var baudotDescription: String {
-        switch self {
-        case .i:
-            return "•"
-            
-        case .o:
-            return " "
-        }
-    }
-    
+	
+	var baudotDescription: String {
+		switch self {
+		case .i:
+			return "•"
+			
+		case .o:
+			return " "
+		}
+	}
+	
 }
 
 private extension BaudotCode {
-    
-    func descriptionCodes(within lineRange: CountableRange<Int>) -> [String] {
-        return lineRange.map({ (i) -> String in
-            return self.codes.map({ (code) -> String in
-                return code.binaryCodeContainer.codes[i].baudotDescription
-            }).joined(separator: "|")
-        })
-    }
-    
+	
+	func descriptionCodes(within lineRange: CountableRange<Int>) -> [String] {
+		return lineRange.map({ (i) -> String in
+			return self.codes.map({ (code) -> String in
+				return code.binaryCodeContainer.codes[i].baudotDescription
+			}).joined(separator: "|")
+		})
+	}
+	
 }
