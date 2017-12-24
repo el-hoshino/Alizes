@@ -96,10 +96,10 @@ public struct BaudotCode {
 	
 }
 
-extension BaudotCode.Code.Letters: BinaryCodeConvertible {
+extension BaudotCode.Code.Letters: BinaryCodeRepresentable {
 	
-	public var binaryCode: BinaryCode {
-		return BinaryCode(value: UInt(self.rawValue), digitCount: 5)
+	public var binaryCodeContainer: BinaryCodeContainer {
+		return BinaryCodeContainer(value: UInt(self.rawValue), digitCount: 5)
 	}
 	
 }
@@ -107,15 +107,15 @@ extension BaudotCode.Code.Letters: BinaryCodeConvertible {
 extension BaudotCode.Code.Letters: CustomStringConvertible {
 	
 	public var description: String {
-		return self.rawValue.baudotCodeString
+        return self.binaryCodeContainer.codes.reduce("", { $0 + $1.baudotDescription })
 	}
 	
 }
 
-extension BaudotCode.Code.Figures: BinaryCodeConvertible {
+extension BaudotCode.Code.Figures: BinaryCodeRepresentable {
 	
-	public var binaryCode: BinaryCode {
-		return BinaryCode(value: UInt(self.rawValue), digitCount: 5)
+	public var binaryCodeContainer: BinaryCodeContainer {
+		return BinaryCodeContainer(value: UInt(self.rawValue), digitCount: 5)
 	}
 	
 }
@@ -123,20 +123,20 @@ extension BaudotCode.Code.Figures: BinaryCodeConvertible {
 extension BaudotCode.Code.Figures: CustomStringConvertible {
 	
 	public var description: String {
-		return self.rawValue.baudotCodeString
+        return self.binaryCodeContainer.codes.reduce("", { $0 + $1.baudotDescription })
 	}
 	
 }
 
-extension BaudotCode.Code: BinaryCodeConvertible {
+extension BaudotCode.Code: BinaryCodeRepresentable {
 	
-	public var binaryCode: BinaryCode {
+	public var binaryCodeContainer: BinaryCodeContainer {
 		switch self {
 		case .letter(let letter):
-			return letter.binaryCode
+			return letter.binaryCodeContainer
 			
 		case .figure(let figure):
-			return figure.binaryCode
+			return figure.binaryCodeContainer
 		}
 	}
 	
@@ -197,7 +197,7 @@ extension BaudotCode: StringInitializable {
 	
 	public init(_ string: String) {
 		
-		let tuple = string.characters.reduce((content: "", codes: [])) { (tuples, character) -> (content: String, codes: [BaudotCode.Code]) in
+		let tuple = string.reduce((content: "", codes: [])) { (tuples, character) -> (content: String, codes: [BaudotCode.Code]) in
 			
 			let dictionary = BaudotCodeDictionary()
 			
@@ -230,69 +230,49 @@ extension BaudotCode: StringInitializable {
 	
 }
 
-extension BaudotCode: BinaryCodeConvertible {
+extension BaudotCode: BinaryCodeRepresentable {
 	
-	public var binaryCode: BinaryCode {
-		return self.codes.reduce(.empty, { (binaryCode, baudotCode) -> BinaryCode in
-			return binaryCode + baudotCode.binaryCode
+	public var binaryCodeContainer: BinaryCodeContainer {
+		return self.codes.reduce(.empty, { (container, baudotCode) -> BinaryCodeContainer in
+			return container + baudotCode.binaryCodeContainer
 		})
 	}
-	
-	public typealias BinaryCodeGroup = (code: BinaryCode.Code, length: Int)
-	public var groupedBinaryCode: [BinaryCodeGroup] {
-		
-		let codes = self.binaryCode.codes
-		let groupedCodes = codes.reduce([]) { (groupedCodes, code) -> [BinaryCodeGroup] in
-			var groupedCodes = groupedCodes
-			if var lastCodeGroup = groupedCodes.last {
-				if lastCodeGroup.code == code {
-					lastCodeGroup.length.increase()
-					groupedCodes.removeLast()
-					groupedCodes.append(lastCodeGroup)
-					
-				} else {
-					let newCodeGroup = (code: code, length: 1)
-					groupedCodes.append(newCodeGroup)
-				}
-				return groupedCodes
-				
-			} else {
-				return [(code: code, length: 1)]
-			}
-		}
-		
-		return groupedCodes
-		
-	}
-	
-}
-
-extension BaudotCode: Convertible {
 	
 }
 
 extension BaudotCode: CustomStringConvertible {
 	
 	public var description: String {
-		return self.codes.reduce("", { (description, code) -> String in
-			if description.isEmpty {
-				return code.description
-				
-			} else {
-				return description + "\n" + code.description
-			}
-		})
+        let alignmentLine = self.codes.map({ _ in "-" }).joined(separator: "|")
+        let transformedCodes1 = self.descriptionCodes(within: 0 ..< 2).joined(separator: "\n")
+        let transformedCodes2 = self.descriptionCodes(within: 2 ..< 5).joined(separator: "\n")
+		return [transformedCodes1, alignmentLine, transformedCodes2].joined(separator: "\n")
 	}
 	
 }
 
-private extension UInt8 {
-	
-	var baudotCodeString: String {
-		return (UInt8(0) ..< UInt8(5)).reversed().reduce("") { (code, i) -> String in
-			let unit = ((self >> i) & 0b1) == 0 ? " " : "."
-			return code + unit
-		}
-	}
-	
+private extension BinaryCodeContainer.Code {
+    
+    var baudotDescription: String {
+        switch self {
+        case .i:
+            return "•"
+            
+        case .o:
+            return " "
+        }
+    }
+    
+}
+
+private extension BaudotCode {
+    
+    func descriptionCodes(within lineRange: CountableRange<Int>) -> [String] {
+        return lineRange.map({ (i) -> String in
+            return self.codes.map({ (code) -> String in
+                return code.binaryCodeContainer.codes[i].baudotDescription
+            }).joined(separator: "|")
+        })
+    }
+    
 }

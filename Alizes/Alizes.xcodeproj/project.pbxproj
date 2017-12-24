@@ -8,11 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1654FF2C1DDEBD0300EE802B /* MorseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1654FF2B1DDEBD0300EE802B /* MorseCode.swift */; };
-		1654FF2E1DDEC0B500EE802B /* BinaryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1654FF2D1DDEC0B500EE802B /* BinaryCode.swift */; };
+		1654FF2E1DDEC0B500EE802B /* BinaryCodeContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1654FF2D1DDEC0B500EE802B /* BinaryCodeContainer.swift */; };
 		165A31781DDEB8E600F15915 /* Alizes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 165A316E1DDEB8E600F15915 /* Alizes.framework */; };
 		165A317D1DDEB8E600F15915 /* AlizesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165A317C1DDEB8E600F15915 /* AlizesTests.swift */; };
 		165A317F1DDEB8E600F15915 /* Alizes.h in Headers */ = {isa = PBXBuildFile; fileRef = 165A31711DDEB8E600F15915 /* Alizes.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1693C7071DDEDAFE00CEDFF7 /* Eltaso.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1693C7061DDEDAFE00CEDFF7 /* Eltaso.framework */; };
 		16A3B4091DE29EF600C82CE4 /* MorseCodeDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A3B4081DE29EF600C82CE4 /* MorseCodeDictionary.swift */; };
 		16A3B40D1DE2A9F900C82CE4 /* BaudotCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A3B40C1DE2A9F900C82CE4 /* BaudotCode.swift */; };
 		16A3B40F1DE2BBE800C82CE4 /* BaudotCodeDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A3B40E1DE2BBE800C82CE4 /* BaudotCodeDictionary.swift */; };
@@ -27,33 +26,17 @@
 			remoteGlobalIDString = 165A316D1DDEB8E600F15915;
 			remoteInfo = Alizes;
 		};
-		1693C70D1DDEE31A00CEDFF7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1693C7081DDEE31A00CEDFF7 /* Eltaso.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 79E14E821D2B90DA00AF6EE4;
-			remoteInfo = Eltaso;
-		};
-		1693C70F1DDEE31A00CEDFF7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1693C7081DDEE31A00CEDFF7 /* Eltaso.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 79E14E8C1D2B90DA00AF6EE4;
-			remoteInfo = EltasoTests;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1654FF2B1DDEBD0300EE802B /* MorseCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorseCode.swift; sourceTree = "<group>"; };
-		1654FF2D1DDEC0B500EE802B /* BinaryCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryCode.swift; sourceTree = "<group>"; };
+		1654FF2D1DDEC0B500EE802B /* BinaryCodeContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryCodeContainer.swift; sourceTree = "<group>"; };
 		165A316E1DDEB8E600F15915 /* Alizes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alizes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		165A31711DDEB8E600F15915 /* Alizes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Alizes.h; sourceTree = "<group>"; };
 		165A31721DDEB8E600F15915 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		165A31771DDEB8E600F15915 /* AlizesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlizesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		165A317C1DDEB8E600F15915 /* AlizesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlizesTests.swift; sourceTree = "<group>"; };
 		165A317E1DDEB8E600F15915 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1693C7061DDEDAFE00CEDFF7 /* Eltaso.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eltaso.framework; path = "../../Eltaso/Eltaso/build/Debug-iphoneos/Eltaso.framework"; sourceTree = "<group>"; };
-		1693C7081DDEE31A00CEDFF7 /* Eltaso.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Eltaso.xcodeproj; path = ../../Eltaso/Eltaso/Eltaso.xcodeproj; sourceTree = "<group>"; };
 		16A3B4081DE29EF600C82CE4 /* MorseCodeDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MorseCodeDictionary.swift; sourceTree = "<group>"; };
 		16A3B40C1DE2A9F900C82CE4 /* BaudotCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaudotCode.swift; sourceTree = "<group>"; };
 		16A3B40E1DE2BBE800C82CE4 /* BaudotCodeDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaudotCodeDictionary.swift; sourceTree = "<group>"; };
@@ -65,7 +48,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1693C7071DDEDAFE00CEDFF7 /* Eltaso.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,7 +65,6 @@
 		165A31641DDEB8E600F15915 = {
 			isa = PBXGroup;
 			children = (
-				1693C7081DDEE31A00CEDFF7 /* Eltaso.xcodeproj */,
 				165A31701DDEB8E600F15915 /* Alizes */,
 				165A317B1DDEB8E600F15915 /* AlizesTests */,
 				165A316F1DDEB8E600F15915 /* Products */,
@@ -105,7 +86,7 @@
 			children = (
 				165A31711DDEB8E600F15915 /* Alizes.h */,
 				165A31721DDEB8E600F15915 /* Info.plist */,
-				1654FF2D1DDEC0B500EE802B /* BinaryCode.swift */,
+				1654FF2D1DDEC0B500EE802B /* BinaryCodeContainer.swift */,
 				16A3B4101DE2DDD100C82CE4 /* Converter.swift */,
 				1654FF2B1DDEBD0300EE802B /* MorseCode.swift */,
 				16A3B4081DE29EF600C82CE4 /* MorseCodeDictionary.swift */,
@@ -127,18 +108,8 @@
 		1693C7051DDEDAFE00CEDFF7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1693C7061DDEDAFE00CEDFF7 /* Eltaso.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		1693C7091DDEE31A00CEDFF7 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				1693C70E1DDEE31A00CEDFF7 /* Eltaso.framework */,
-				1693C7101DDEE31A00CEDFF7 /* EltasoTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,18 +169,19 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = net.crazism;
 				TargetAttributes = {
 					165A316D1DDEB8E600F15915 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = KC8N9BMQJY;
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					165A31761DDEB8E600F15915 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = KC8N9BMQJY;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -224,12 +196,6 @@
 			mainGroup = 165A31641DDEB8E600F15915;
 			productRefGroup = 165A316F1DDEB8E600F15915 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 1693C7091DDEE31A00CEDFF7 /* Products */;
-					ProjectRef = 1693C7081DDEE31A00CEDFF7 /* Eltaso.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				165A316D1DDEB8E600F15915 /* Alizes */,
@@ -237,23 +203,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		1693C70E1DDEE31A00CEDFF7 /* Eltaso.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Eltaso.framework;
-			remoteRef = 1693C70D1DDEE31A00CEDFF7 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		1693C7101DDEE31A00CEDFF7 /* EltasoTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = EltasoTests.xctest;
-			remoteRef = 1693C70F1DDEE31A00CEDFF7 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		165A316C1DDEB8E600F15915 /* Resources */ = {
@@ -282,7 +231,7 @@
 				16A3B40F1DE2BBE800C82CE4 /* BaudotCodeDictionary.swift in Sources */,
 				1654FF2C1DDEBD0300EE802B /* MorseCode.swift in Sources */,
 				16A3B4111DE2DDD100C82CE4 /* Converter.swift in Sources */,
-				1654FF2E1DDEC0B500EE802B /* BinaryCode.swift in Sources */,
+				1654FF2E1DDEC0B500EE802B /* BinaryCodeContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,7 +263,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -322,7 +273,12 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -367,7 +323,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -375,7 +333,12 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -422,7 +385,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -443,7 +406,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.crazism.Alizes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -456,7 +419,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.crazism.AlizesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -469,7 +433,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.crazism.AlizesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

@@ -94,7 +94,7 @@ extension MorseCode.Word.Letter {
 	
 	fileprivate init(codeString: String) {
 		
-		let codes = codeString.characters.map { (codeCharacter) -> MorseCode.Unit.Code in
+		let codes = codeString.map { (codeCharacter) -> MorseCode.Unit.Code in
 			guard let code = MorseCode.Unit.Code(codeCharacter) else {
 				fatalError("Invalid code string")
 			}
