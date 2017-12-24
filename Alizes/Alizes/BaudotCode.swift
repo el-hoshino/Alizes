@@ -197,7 +197,7 @@ extension BaudotCode: StringInitializable {
 	
 	public init(_ string: String) {
 		
-		let tuple = string.characters.reduce((content: "", codes: [])) { (tuples, character) -> (content: String, codes: [BaudotCode.Code]) in
+		let tuple = string.reduce((content: "", codes: [])) { (tuples, character) -> (content: String, codes: [BaudotCode.Code]) in
 			
 			let dictionary = BaudotCodeDictionary()
 			

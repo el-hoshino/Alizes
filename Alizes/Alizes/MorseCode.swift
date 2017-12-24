@@ -121,10 +121,10 @@ extension MorseCode.Unit.Gap: CustomStringConvertible {
 			return ""
 			
 		case .short:
-			return " "
+			return "/"
 			
 		case .medium:
-			return "   "
+			return "///"
 		}
 	}
 	
@@ -163,7 +163,7 @@ extension MorseCode.Word {
 	public init(_ string: String) {
 		
 		let dictionary = MorseCodeDictionary()
-		let tuples = string.characters.flatMap { (character) -> (character: Character, code: MorseCode.Word.Letter)? in
+		let tuples = string.flatMap { (character) -> (character: Character, code: MorseCode.Word.Letter)? in
 			if let code = dictionary.getCode(for: character) {
 				return (character, code)
 			} else {
@@ -225,7 +225,7 @@ extension MorseCode: StringInitializable {
 			if content.isEmpty {
 				return word.content
 			} else {
-				return content + MorseCode.Unit.Gap.medium.description + word.content
+				return content + " " + word.content
 			}
 		})
 		self.words = words
@@ -255,7 +255,7 @@ extension MorseCode: CustomStringConvertible {
 			if description.isEmpty {
 				return word.description
 			} else {
-				return description + "   " + word.description
+				return description + MorseCode.Unit.Gap.medium.description + word.description
 			}
 		})
 	}

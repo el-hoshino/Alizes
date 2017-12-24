@@ -7,8 +7,6 @@
 //
 
 import Foundation
-import Eltaso
-
 
 public protocol BinaryCodeRepresentable {
 	var binaryCodeContainer: BinaryCodeContainer { get }
