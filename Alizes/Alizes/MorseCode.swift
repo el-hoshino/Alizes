@@ -163,7 +163,7 @@ extension MorseCode.Word {
 	public init(_ string: String) {
 		
 		let dictionary = MorseCodeDictionary()
-		let tuples = string.characters.flatMap { (character) -> (character: Character, code: MorseCode.Word.Letter)? in
+		let tuples = string.flatMap { (character) -> (character: Character, code: MorseCode.Word.Letter)? in
 			if let code = dictionary.getCode(for: character) {
 				return (character, code)
 			} else {
