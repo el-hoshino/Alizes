@@ -39,7 +39,7 @@ public struct Converter {
 			var groupedCodes = groupedCodes
 			if var lastCodeGroup = groupedCodes.last {
 				if lastCodeGroup.code == code {
-					lastCodeGroup.length.increase()
+					lastCodeGroup.length += 1
 					groupedCodes.removeLast()
 					groupedCodes.append(lastCodeGroup)
 					
